@@ -1,0 +1,17 @@
+$edit-account-padding: 1em;
+
+.edit-account, .upgrade-account {
+	background-color: #ffffff;
+	padding: $edit-account-padding;
+	margin: 1em 0;
+
+	@include media($large-screen) {
+		@include span-columns(9);
+		padding-top: 0;
+
+	}
+
+	h1, h2, p {
+		margin: $edit-account-padding / 2 0;
+	}
+}

@@ -1,0 +1,80 @@
+h1 {
+	margin: 0.5em 0;
+}
+.search-wrapper {
+	background-color: #fff;
+	padding: 5px 0;
+
+	form {
+		.price p.CaptionCont {
+			min-width: 0;
+		}
+		padding-top: 1em;
+		input {
+			max-height:37px;
+		}
+	}
+
+}
+
+.search-advanced {
+    opacity: 0; 
+    height: 0;
+
+
+	&.search-advanced-open {
+		transition: opacity 0.5s ease-in;
+
+	    opacity: 1;
+	    height: auto;
+	}
+
+	.control-group {
+		display: inline-block;
+	}
+
+}
+
+.property-map {
+	margin-top: 1em;
+
+	@include media($large-screen) {
+		@include span-columns(3);
+	}
+
+	#map_canvas {
+		height:300px;
+	}
+}
+
+.search {
+	
+	.property-listing {
+		@include media($large-screen) {
+			@include span-columns(9);
+		}
+	}
+}
+
+.filter-options {
+	background-color: #ffffff;
+	display: block;
+	width: 100%;
+	padding: 0.5em;
+
+	span {
+		//line-height: 37px;
+		margin-left: 0.5em;
+
+		a {
+			color: $base-font-color;
+		}
+	}
+	form, form.control-group {
+		display: inline-block;
+	}
+	.resultcount {
+		float: right;
+		margin-top: 10px;
+	}
+}

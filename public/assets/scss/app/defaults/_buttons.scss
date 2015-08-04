@@ -1,0 +1,129 @@
+$btn-color: #ffffff;
+$btn-background-color: $orange;
+$btn-background-color-hover: lighten($orange, 10%);
+
+.btn {
+    @include appearance(none);
+    -webkit-font-smoothing: antialiased;
+    background-color: $btn-background-color;
+    border: none;
+    color: $btn-color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: 1;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-transform: uppercase;
+    
+    &:hover, &:focus {
+        background-color: $btn-background-color-hover;
+        color: $btn-color;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &.btn-search {
+        width: 20px;
+        height: 40px;
+        text-indent: 100%;
+        overflow: hidden;
+
+        &:before {
+            content: "\f002";
+            font-family: FontAwesome;
+            font-size: 20px;
+        }
+    }
+
+    &.btn-magnify {
+        &:before {
+            content: "\f002";
+            font-family: FontAwesome;
+            margin-right: 5px;
+        }
+    }
+
+    &.btn-orange {
+        background-color: $orange;
+        &:hover, &:focus {
+            background-color: $btn-background-color-hover;
+        }
+    }
+
+    &.btn-success {
+        background-color:#5cb85c;
+        &:hover, &:focus {
+            background-color: lighten(#5cb85c, 10%);
+        }
+    }
+
+    &.btn-grey {
+        background-color: $green-gray;
+        &:hover, &:focus {
+            background-color: lighten($green-gray, 10%);
+        }
+    }
+
+    &.btn-submit {
+        display: block;
+        @include clearfix;
+    }
+
+    &.btn-more-filters {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+        box-sizing: border-box;
+        font-size: 0.8em;
+        font-weight: 600;
+        transition: border-color;
+        color: $base-font-color;
+        &:after {
+            content: "\f078";
+            font-family: FontAwesome;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+    }
+
+    &.btn-fav {
+        color: #fff;
+        background-color: $orange;
+        text-transform: capitalize;
+        padding: 10px 1em;
+
+        &:hover, &:select {
+            background-color: lighten($orange, 10%);
+        }
+
+        &:before{
+            content: "\F006";
+            font-family: FontAwesome;
+        }
+        &.open:before {
+            content: "\F005";
+        }
+    }
+
+    &.btn-star {
+        background-color: transparent;
+        color: $orange;
+        padding: 3px;
+    }
+
+    &.btn-warning, &.btn-danger {
+        background-color: $red;
+        &:hover, &:focus {
+            background-color: lighten($red, 10%);
+        }
+    }
+}

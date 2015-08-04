@@ -1,0 +1,20 @@
+/* Defaults */
+@import "defaults/base";
+
+/* partials */
+@import "partials/base";
+
+/* modules */
+@import "modules/base";
+
+/* Custom CSS */
+@import "header";
+@import "footer";
+
+@import "home";
+@import "search";
+@import "login";
+@import "details";
+@import "edit-property";
+@import "edit-account";
+@import "dashboard";

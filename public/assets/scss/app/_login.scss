@@ -1,0 +1,19 @@
+.login-wrapper, .forgot-wrapper, .reset-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 1em;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+
+	h1 {
+		margin: 0 0 1em 0;
+	}
+
+	@include media ($small-screen) {
+		margin: 1em auto;
+		border-radius: 10px;
+        width: 50%;
+        min-width: 340px;
+        max-width: 400px;
+    }
+}

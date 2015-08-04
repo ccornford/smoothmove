@@ -1,0 +1,28 @@
+.sidebar-nav {
+	float: right;
+	@include media($medium-screen) {
+		@include span-columns(6);
+		@include omega();
+	}
+	@include media($large-screen) {
+		@include span-columns(3);
+		@include omega();
+	}
+	margin: 1em 0;
+
+	.btn {
+		width: 100%;
+		text-align: right;
+		margin: 1em 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+	    &:before {
+	        content: "\F0D9";
+	        font-family: FontAwesome;
+			float:left;
+	    }
+	}
+}

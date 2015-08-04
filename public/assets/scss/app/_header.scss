@@ -1,0 +1,269 @@
+// Variables
+$navigation-padding: 1em;
+$navigation-background: $green-gray;
+$navigation-color: $base-link-color-light;
+$navigation-color-hover: $base-link-color-light-hover;
+$navigation-height: 60px;
+$navigation-nav-button-background: $base-accent-color;
+$navigation-nav-button-background-hover: lighten($navigation-background, 10%);
+$navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20%);
+$navigation-search-background: lighten($navigation-background, 5);
+$navigation-search-border: 1px solid darken($navigation-background, 5);
+$navigation-active-link-color: transparentize(white, 0.5);
+$navigation-submenu-padding: 1em;
+$navigation-submenu-width: 12em;
+$horizontal-bar-mode: $large-screen;
+
+.header-navigation {
+    @include row();
+    background-color: $navigation-background;
+    border-bottom: 1px solid darken($navigation-background, 10);
+    min-height: $navigation-height;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 3px solid $orange;
+
+    @include media ($horizontal-bar-mode) {
+        @include pad($navigation-padding * 2 0);
+    }
+}
+.header-navigation-wrapper {
+    @include clearfix;
+    @include outer-container;
+    position: relative;
+    z-index: 9999;
+}
+.header-rightside {
+        float: right;
+}
+
+.header-logo {
+    max-height: $navigation-height;
+    padding-left: $navigation-padding;
+    padding-right: 2em;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+
+    img {
+        max-height: $navigation-height;
+        padding: 0.8em 0;
+    }
+
+    @include media ($horizontal-bar-mode) {
+        float: left;
+    }
+}
+
+// Mobile view
+
+.header-navigation-menu-button {
+    color: $navigation-color;
+    display: inline-block;
+    float: right;
+    font-weight: 700;
+    line-height: 34px;
+    padding-right: 1em;
+    text-transform: uppercase;
+    margin-top: 13px;
+
+
+    @include media ($horizontal-bar-mode) {
+        display: none;
+    }
+
+    &:focus,
+    &:hover {
+        color: $navigation-color-hover;
+    }
+
+    &:before {
+        content: "\f0c9";
+        font-family: FontAwesome;
+        font-size: 20px;
+    }
+}
+
+// Nav menu
+
+nav {
+    float: none;
+    z-index: 9999999;
+
+    @include media ($horizontal-bar-mode) {
+        float: left;
+        height:34px;
+    }
+
+}
+
+ul.nav-navigation-menu {
+    -webkit-transform-style: preserve-3d; // stop webkit flicker
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+    z-index: 9999;
+
+    &.show {
+        display: block;
+    }
+
+    @include media ($horizontal-bar-mode) {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        background: $navigation-background;
+        display: block;
+        line-height: $navigation-height;
+        overflow: hidden;
+        padding-right: 0.8em;
+        text-align: right;
+        width: 100%;
+        z-index: 9999;
+
+        @include media ($horizontal-bar-mode) {
+            background: transparent;
+            display: inline;
+            line-height: $navigation-height;
+            text-decoration: none;
+            width: auto;
+        }
+
+        a {
+            position: relative;
+            color: $navigation-color;
+            display: inline-block;
+            font-weight: 400;
+            text-transform: uppercase;
+
+            @include media ($horizontal-bar-mode) {
+                padding-right: 1em;
+            }
+
+            &:focus,
+            &:hover {
+                color: $navigation-color-hover;
+            }
+
+            .notif {
+                display: block;
+                position: absolute;
+                top: 8px;
+                right: 0;
+                line-height: 16px;
+                height: 16px;
+                padding: 0 5px;
+                font-size: 1em;
+                color: white;
+                text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+                border: 1px solid;
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.08);
+                box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.08);
+
+                background: $orange;
+                border-color: #ffffff;
+            }
+        }
+    }
+}
+
+.active-nav-item a {
+    border-bottom: 1px solid $navigation-active-link-color;
+    padding-bottom: 3px;
+}
+
+// Search bar
+
+.header-search {
+    $search-bar-border-color: $base-border-color;
+    $search-bar-border: 1px solid $search-bar-border-color;
+    $search-bar-background: lighten($search-bar-border-color, 10%);
+
+    position: relative;
+    float: right;
+    width: 34px;
+    height: 34px;
+    margin-top: 13px;
+
+    form {
+        position: relative;
+
+        input[type=text] {
+            @include box-sizing(border-box);
+            background: $navigation-search-background;
+            border: $navigation-search-border;
+            color: $navigation-color;
+            font-size: 0.9em;
+            font-style: italic;
+            margin: 0;
+            padding: 0.5em 0.8em;
+            width: 265px;
+            height: 31px;
+            right: 34px;
+            position: absolute;
+            opacity: 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        .icon-search, input[type=submit] {
+            display: block;
+            height: 31px;
+            width: 34px;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            right: 0;
+            text-align: center;
+            line-height: 31px;
+        }
+        .icon-search {
+            background-color: $green-gray;
+            color: $light-gray;
+
+            &:before {
+                content: "\f002";
+                font-family: FontAwesome;
+                font-size: 20px;
+            }
+
+            &:focus,
+            &:hover {
+                color: $navigation-color-hover;
+            }
+        }
+        input[type=submit] {
+            opacity: 0;
+        }
+    }
+
+    &.header-search-open {
+        .icon-search {
+            background-color: #425158;
+            color: $orange;
+        }
+        input[type=text] {
+            opacity: 1;
+            -webkit-transition: opacity 0.2s;
+            transition: opacity 0.2s;
+            z-index: 500;
+        }
+    }
+
+    @include media($horizontal-bar-mode) {
+        display: inline-block;
+        position: relative;
+
+        input {
+            @include box-sizing(border-box);
+            display: block;
+        }
+    }
+}

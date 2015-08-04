@@ -1,0 +1,55 @@
+table {
+  @include font-feature-settings("kern", "liga", "tnum");
+  border-collapse: collapse;
+  margin: $small-spacing 0;
+  table-layout: fixed;
+  width: 100%;
+  border: 1px solid #dbdbdb;
+  caption {
+    font-weight: bold;
+    padding: 8px;
+    line-height: 20px;
+    border-top: 1px solid #dbdbdb;
+    vertical-align: middle;
+
+  }
+}
+
+th {
+  border-bottom: 1px solid darken($base-border-color, 15%);
+  font-weight: 600;
+  padding: $small-spacing 0;
+  text-align: left;
+}
+
+td {
+  border-bottom: $base-border;
+  padding: $small-spacing 0;
+}
+
+tr,
+td,
+th {
+  vertical-align: middle;
+}
+
+.table-striped tbody > tr:nth-child(odd) > td {
+  background-color: #F4F4F4;
+}
+
+
+
+table td {
+      font-weight: normal;
+      text-align: right;
+      vertical-align: middle;
+
+      padding: 8px;
+      line-height: 20px;
+      border-top: 1px solid #dbdbdb;
+
+      &:first-child {
+        font-weight: bold;
+        text-align: left;
+      }
+    }

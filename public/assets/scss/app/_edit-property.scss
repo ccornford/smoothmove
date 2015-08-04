@@ -1,0 +1,37 @@
+.edit-form {
+	@include span-columns(6);
+
+}
+
+.property-form {
+    @include clearfix;
+	@include media($large-screen) {
+		@include span-columns(6);
+	}
+}
+
+.file-upload {
+	clear: both;
+}
+
+.fileupload-buttonbar {
+	.btn {
+		width: 100%;
+		display: block;
+		@include media($medium-screen) {
+			width: auto;
+			display: inline-block;
+		}
+	}
+}
+#fileupload {
+	table td {
+		width: 100%;
+		display: inline-block;
+
+		@include media($medium-screen) {
+			display: table-cell;
+			width: auto;
+		}
+	}
+}

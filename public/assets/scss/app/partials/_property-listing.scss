@@ -1,0 +1,167 @@
+$property-images-height: 230px;
+$property-images-num-bg: rgba(#000, 0.6);
+$property-let-agreed-img: url('/assets/images/let-agreed.png');
+
+.property-listing {
+	display: block;
+	overflow: hidden;
+
+	&.list {
+		.properties .property {
+			width: 100%;
+
+			.property-info {
+				@include span-columns(6);
+				@include omega();
+			}
+
+			.property-images {
+				@include span-columns(6);
+				min-width: 0;
+			}
+
+			.description {
+				display: block;
+				clear: both;
+			}
+		}
+	}
+}
+
+.properties {
+	.property {
+		@include media($medium-screen) {
+			@include span-columns(6);
+			@include omega(2n);
+		}
+	}
+	&.properties-1of2 {
+		.property {
+			@include media($large-screen) {
+				@include span-columns(6);
+				@include omega(2n);
+			}
+		}
+	}
+
+	&.properties-1of3 {
+		.property {
+			@include media($large-screen) {
+				@include span-columns(4);
+				@include omega(3n);
+			}
+			&:nth-child(2n+1) {
+				clear: none;
+			}
+		}
+	}
+}
+
+.property {
+	background-color: #ffffff;
+	position: relative;
+	margin-top: 1em;
+	
+	span.property-recent {
+		position:absolute;
+		top: 0;
+		left: 0;
+		padding: 3px 8px;
+		background-color: $green-gray;
+		z-index: 500;	
+		color: #ffffff;
+		font-size: $small-font-size;
+	}
+
+	.button-group {
+		overflow: hidden;
+		display: block;
+		clear: both;
+		a, form {
+			@include span-columns(6);
+			@include omega(2n);
+			text-align: center;	
+			margin-top: 1em;
+			.btn {
+				width: 100%;
+			}
+		}
+	}
+
+}
+
+.property-images{
+	min-height: $property-images-height;
+	min-width:100%;
+	position: relative;
+	overflow: hidden;
+
+	.slides {
+	    @include clearfix;
+		z-index: 0;
+	}
+
+	.property-slide-nav {
+		display: none;
+	}
+
+	img {
+		min-height: $property-images-height;
+		width: auto;
+	}
+
+	&.property-let-agreed:before {
+		content: "";
+		background-image: $property-let-agreed-img;
+		background-repeat: no-repeat;
+		position: absolute;
+		right: 0;
+		width: 80px;
+		height: 80px;
+		z-index: 100;
+	}
+
+	.flash {
+		margin-bottom: 0;
+	}
+	
+}
+
+
+
+.property-images-num {
+	text-align: center;
+	width: 100%;
+	display: block;
+	background-color: $property-images-num-bg;
+	color: #ffffff;
+	position: absolute;
+	bottom: 0;
+	padding: 5px 0;
+}
+
+.property-info {
+	padding: 1em;
+
+	.left {
+		@include span-columns(9);
+		.favourite {
+			display: inline-block;
+		}
+	}
+
+	.price {
+		@include span-columns(3);
+		@include omega();
+	}
+	.amenities {
+		margin-top:5px;
+
+	}
+	.address {
+		text-transform: capitalize;
+	}
+	.description {
+		display: none;
+	}
+}

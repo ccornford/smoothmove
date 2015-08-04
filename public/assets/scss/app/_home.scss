@@ -1,0 +1,101 @@
+//variables
+$hero-height-medium: 600px;
+$hero-height-small: 300px;
+$hero-search-medium-width: 45%;
+$register-background-color: $green-gray;
+$how-it-works-background-color: #fff;
+//hero
+.hero {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: $hero-height-small;
+    position: relative;
+    @include media($medium-screen) {
+        height: $hero-height-medium;
+    }
+}
+
+.hero-search {
+    @include media($medium-screen) {
+        @include pad(30px 100px);
+        width: $hero-search-medium-width;
+        min-width: 675px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    height: 180px;
+    margin: auto;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: $register-background-color;
+    border-radius: 5px;
+    width:90%;
+    padding: 20px 1em;
+    h1 {
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 0.5em;
+    }
+    p {
+        color: white;
+        text-align: center;
+        margin-top:0.3em;
+    }
+}
+
+.how-it-works {
+    background-color: $how-it-works-background-color;
+    margin-bottom:1em;
+
+    .grid-block {
+        text-align:center;
+        @include pad(2em 1.5em);
+        img {
+            margin-bottom:1em;
+        }
+    }
+}
+
+.home > .property-listing {
+    margin: 1em auto;
+    display:block;
+    width:100%;
+    @extend .container;
+}
+
+.register {
+    @extend .container;
+}
+
+.register-form {
+    @include media($medium-screen) {
+        @include span-columns(6);
+    }
+    form {
+        background-color: $register-background-color;
+        border-radius: 5px;
+        padding: 20px;
+    }
+}
+
+.register-info {
+    @include media($medium-screen) {
+        @include span-columns(6);
+        @include clearfix;
+        @include omega(2n);
+    }
+    li {
+        &:before {
+            content: "";
+            background-image: url('/assets/images/icon-tick.png');
+            height: 51px;
+            width: 51px;
+            background-repeat: no-repeat;
+            display: inline-block;
+        }
+    }
+    h3 {
+        text-align: center;
+    }
+}
